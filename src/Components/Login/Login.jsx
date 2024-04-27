@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "../../client";
-
+import { useNavigate } from "react-router-dom";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userID, setUserID] = useState();
+  let navigate = useNavigate();
+
   async function signUpHandler() {
     try {
       const { data, error } = await supabase.auth.signUp({
@@ -18,6 +20,7 @@ export default function Login() {
   useEffect(() => {
     supabase.auth.getUser().then((userDetails) => {
       console.log(userDetails.data.user.email);
+      navigate("/dashboard");
     });
   }, []);
 

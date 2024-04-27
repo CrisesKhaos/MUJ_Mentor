@@ -1,20 +1,19 @@
 import { supabase } from "../../client";
 
-import React from "react";
+import React, { useState } from "react";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   async function signUpHandler() {
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email: email,
-        password: password,
-      });
-    } catch (error) {
-      alert(error);
-    }
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+    });
+    console.log(error);
   }
+
   return (
     <div>
       <input
