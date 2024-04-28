@@ -1,0 +1,27 @@
+.stud-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.issues {
+  display: flex;
+  width: 60%;
+  background-color: aqua;
+  flex-direction: column;
+}
+.tabs {
+  padding: 15px;
+  width: fit-content;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.tab-active {
+  border-bottom: solid #123456;
+}
+
+.idk {
+  width: 17%;
+}
