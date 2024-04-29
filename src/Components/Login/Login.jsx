@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "../../client";
 import { useNavigate } from "react-router-dom";
+import "./Login.css";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,26 +34,43 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <input
-        name="emailInput"
-        type="text"
-        value={email}
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
+    <div className="homepage-container">
+      <div className="login-card">
+        <div className="sub-title">Sign in</div>
+        <div className="group">
+          <input
+            className="input-login"
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </div>
+        <div className="group">
+          <input
+            className="input-login"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
 
-      <input
-        name="passInput"
-        type="text"
-        value={password}
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
-      />
-      <button onClick={signInHandler}>Sign In</button>
-      <button onClick={logoutHandler}>Sign Out</button>
+        <div className="button-signin" onClick={signInHandler}>
+          Sign In
+        </div>
+        <div
+          className="button-signup"
+          onClick={() => {
+            navigate("/signup");
+          }}
+        >
+          Sign Up
+        </div>
+      </div>
     </div>
   );
 }
